@@ -1,0 +1,134 @@
+*** Settings ***
+Documentation  Tax questionnaire page
+Resource  ../includes/indinero.txt
+
+*** Variables ***
+${tax.questionnaire.url}= ${URL}/tax_questionnaire/${year}
+
+*** Keywords ***
+Navigate to tax questionnaire page
+  Navigate To  ${tax.questionnaire.url}
+
+Navigate to tab number ${number}
+  Click Element                css=.progress-step[data-num='${number}']
+  Page Should Contain Element  css=.progress-step.current[data-num='${number}']
+  
+Navigate to Basic Company Info tab
+  Navigate to tab number 1
+
+Input to address fields
+  [Arguments]   ${addressLine1}  ${addressLine2}
+  Input Text    css=.jw_input.address1  ${addressLine1}
+  Input Text    css=.jw_input.address2  ${addressLine2}
+  
+Input ${value} to country field
+  Input Text  css=.country-dropdown-container input.dropdown_input  ${value}
+  
+Input ${value} to city field
+  Input Text  name=54f5107872f3362785000005-input  ${value}
+  
+Input ${value} to state/province field
+  Input Text  css=.state-container input.dropdown_input  ${value}
+
+Input ${value} to postal/zip code
+  Input Text  name=54f5107872f3362785000007-input  ${value}
+  
+Input ${value} to email field
+  Input Text  name=54f5107872f3362785000009-input  ${value}
+  
+Input ${value} to phone number field
+  Input Text  name=54f5107872f336278500000a-input  ${value}
+  
+Input ${value} to tax return signee field
+  Input Text  name=54f5107872f336278500000b-input  ${value}
+
+Input ${value} to fedral identification number field
+  Input Text  name=54f5107872f336278500000c-input  ${value}
+  
+Select Yes for first year filing taxes
+  Click Element  css=div[data-choice-id='54f5107872f336278500000e']
+
+Select No for first year filing taxes
+  Click Element  css=div[data-choice-id='54f5107872f336278500000f']
+
+Input to company short description text
+  [Arguments]  ${value}
+  Send Keys  name=54f5107872f3362785000010-textarea  ${value}
+  
+Input to products sold/services rendered text
+  [Arguments]  ${value}
+  Send Keys  name=54f5107872f3362785000011-textarea  ${value}
+
+Navigate to company details tab
+  Navigate to tab number 2
+
+Select Yes for company filed paperwork to change its name
+  Click Element  css=div[data-choice-id='54f5107872f3362785000014']
+  
+Select No for company filed paperwork to change its name
+  Click Element  css=div[data-choice-id='54f5107872f3362785000015']
+  
+Select Yes for doing business as (DBA) name
+  Click Element  css=div[data-choice-id='54f5107872f3362785000018']
+  
+Select No for doing business as (DBA) name
+  Click Element  css-div[data-choice-id='54f5107872f3362785000019']
+  
+Input ${value} for company's fiscal year end date
+  Input Text  name=54f5107872f3362785000021-input  ${value}
+  
+Select Yes for company IRS Form 1128 field
+  Click Element  css=div[data-choice-id='54f5107872f3362785000023']
+  
+Select No for company IRS Form 1128 field
+  Click Element  css=div[data-choice-id='54f5107872f3362785000024']
+  
+Select Ask inDinero for company IRS Form 1128 field
+  Click Element  css=div[data-choice-id='54f5107872f336278500002a']
+  
+Select Yes for company IRS Form 3115 field
+  Click Element  css=div[data-choice-id='54f5107872f3362785000028']
+  
+Select No for company IRS Form 3115 field
+  Click Element  css=div[data-choice-id='54f5107872f3362785000029']
+  
+Select Ask inDinero for company IRS Form 3115 field
+  Click Element  css=div[data-choice-id='54f5107872f336278500002a']
+
+Navigate to entity type tab
+  Navigate to tab number 3
+
+Input ${value} to company entity type drop-down
+  Input Text  css=div[data-question-id='54f5107872f336278500002d'] div.question-type-container input.dropdown_input  ${value}
+
+Input C Corp as company entity type
+  Input C Corp to company entity type drop-down
+
+Under C Corp, enter the list of company officers
+  
+
+Input S Corp as company entity type
+  Input S Corp to company entity type drop-down
+  
+Input LLC as company entity type
+  Input LLC to company entity type drop-down
+  
+Input Partnership as company entity type
+  Input Partnership to company entity type drop-down
+  
+Input Single Member LLC as company entity type
+  Input Single Member LLC to company entity type
+  
+Input Sole Prop. as company entity type
+  Input Sole Prop. to company entity type drop-down
+  
+Input Non Profit as company entity type
+  Input Non Profit to company entity type drop-down
+   
+
+
+
+
+
+
+  

@@ -1,0 +1,4 @@
+*** Settings ***
+Documentation  Loads the libraries.
+Library        BuiltIn
+Library        JSpringBotGlobal

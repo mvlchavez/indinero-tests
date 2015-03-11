@@ -1,0 +1,8 @@
+*** Settings ***
+Documentation  Common Selenium Keywords
+Resource       ../resource.txt
+
+*** Keywords ***
+Capture Screenshot On Failure
+  Run Keyword If Test Failed    Capture Screenshot
+

@@ -1,0 +1,11 @@
+*** Settings ***
+Documentation  Contains keywords on common indinero app ui elements
+Resource       selenium-utils.txt
+
+*** Keywords ***
+Select ${label} from custom drop-down list
+  [Arguments]  ${locator}
+
+
+  
+  

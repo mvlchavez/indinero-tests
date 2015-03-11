@@ -1,0 +1,18 @@
+*** Settings ***
+Documentation  Login page
+Resource  ../selenium-utils.txt
+
+*** Variables ***
+${login.url}=   ${URL}/login
+
+*** Keywords ***
+Navigate to login page
+  Navigate To  ${login.url}
+  
+Login using ${username} and ${password}
+  Input Text  name=email  ${username}
+  Input Text  name=password  ${password}
+  Click Element  name=log-in
+
+
+  
