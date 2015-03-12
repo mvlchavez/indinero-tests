@@ -14,5 +14,6 @@ Login using ${username} and ${password}
   Input Text  name=password  ${password}
   Click Element  name=log-in
 
-
+Login to system using fullservice account
+  Login using ${FULL_SERVICE_USERNAME} and ${FULL_SERVICE_PASSWORD}
   

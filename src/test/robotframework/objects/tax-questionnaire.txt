@@ -80,6 +80,10 @@ Input ${value} for company's fiscal year end date
 Select Yes for company IRS Form 1128 field
   Click Element  css=div[data-choice-id='54f5107872f3362785000023']
   
+Upload IRS Form 1128
+  [Argument]  ${filePath}
+  Send Keys  css=form#upload-54f5107872f3362785000026 input.custom-file-input  ${filePath}
+
 Select No for company IRS Form 1128 field
   Click Element  css=div[data-choice-id='54f5107872f3362785000024']
   
@@ -89,6 +93,10 @@ Select Ask inDinero for company IRS Form 1128 field
 Select Yes for company IRS Form 3115 field
   Click Element  css=div[data-choice-id='54f5107872f3362785000028']
   
+Upload IRS Form 3115
+  [Arguments]  ${filePath}
+  Send Keys  css=form#upload-54f5107872f336278500002b input.custom-file-input  ${filePath}
+
 Select No for company IRS Form 3115 field
   Click Element  css=div[data-choice-id='54f5107872f3362785000029']
   
@@ -104,11 +112,47 @@ Input ${value} to company entity type drop-down
 Input C Corp as company entity type
   Input C Corp to company entity type drop-down
 
-Under C Corp, enter the list of company officers
+Under C Corp, enter a company officer under line ${lineNumber}
+  [Arguments]  ${name}  ${taxId}  ${citizenship}  ${position}
+  Input Text  name=54f5107872f3362785000052-${lineNumber}-officer-name      ${name}
+  Input Text  name=54f5107872f3362785000052-${lineNumber}-tax               ${taxId}
+  Input Text  name=54f5107872f3362785000052-${lineNumber}-citizenship       ${citizenship}
+  Input Text  name=54f5107872f3362785000052-${lineNumber}-officer-position  ${position}
   
+Under C Corp, remove line number ${lineNumber}
+  Click Element  css=.dependent-row#${lineNumber} div.delete-row span
+ 
+Under C Corp, add a new officer row
+  Click Element  css=.add-row
+  
+Under C Corp, select Yes for company change or convert entity type
+  Click Element  css=div[data-choice-id='54f5107872f3362785000054']
+  
+Under C Corp, select No for company change or convert entity type
+  Click Element  css=div[data-choice-id='54f5107872f3362785000055']
+  
+Under C Corp, select Ask inDinero for company change or convert entity type
+  Click Element  css=div[data-choice-id='54f5107872f3362785000056']
+  
+Under C Corp, input comments regarding entity type
+  [Arguments]  ${value}
+  Send Keys    name=54f5107872f3362785000064-textarea  ${value}
 
 Input S Corp as company entity type
   Input S Corp to company entity type drop-down
+  
+Under S Corp, input comments regarding entity type
+  [Arguments]  ${value}
+  Send Keys  name=54f5107872f336278500007f-textarea  ${value}
+  
+Under S Corp, select Yes for company change or convert entity type
+  Click Element  css=div[data-choice-id='54f5107872f3362785000066']
+  
+Under S Corp, select No for company change or convert entity type
+  Click Element  css=div[data-choice-id='54f5107872f3362785000067']
+  
+Under S Corp, select Ask inDinero for company change or convert entity type
+  Click Element  css=div[data-choice-id='54f5107872f3362785000068']
   
 Input LLC as company entity type
   Input LLC to company entity type drop-down
@@ -125,9 +169,41 @@ Input Sole Prop. as company entity type
 Input Non Profit as company entity type
   Input Non Profit to company entity type drop-down
    
+# End of entity types tab
 
+Select Yes from 1099 Form or 1099-Ks 
+  Click Element  css=div[data-choice-id='54f5107872f3362785000130']
 
+Upload 1099 Form
+  Send Keys  css=form#upload-54f5107872f3362785000133 input.custom-file-input
 
+Select No from 1099 Form or 1099-Ks
+  Click Element  css=div[data-choice-id='54f5107872f3362785000131]
+  
+Select Ask inDinero from 1099 Form or 1099-Ks
+  Click Element  css=div[data-choice-id='54f5107872f3362785000132']
+
+Select Yes for if the company sell or dispose of any Fixed Assets
+  Click Element  css=div[data-choice-id='54f5107872f3362785000135']
+  
+Select No for if the company sell or dispose of any Fixed Assets
+  Click Element  css=div[data-choice-id='54f5107872f3362785000136']
+  
+Select Ask inDinero if the company sell or dispose of any Fixed Assets
+  Click Element  css=div[data-choice-id='54f5107872f3362785000137']
+  
+Select Yes for if company has any installment sales in the current tax year
+  Click Element  css=div[data-choice-id='54f5107872f3362785000139']
+  
+Select No for if company has any installment sales in the current tax year
+  Click Element  css=div[data-choice-id='54f5107872f336278500013a']
+  
+Select Ask inDinero if company has been any installment sales in the current year
+  Click Element  css=div[data-choice-id='54f5107872f336278500013b']
+  
+
+  
+  
 
 
 
