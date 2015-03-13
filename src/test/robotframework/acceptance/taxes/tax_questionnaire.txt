@@ -1,0 +1,24 @@
+*** Settings ***
+Documentation  Tests to verify Tax Questionnaire page
+...            correctness. 
+Resource       ../../objects/login.txt
+Resource       ../../objects/accountant.txt
+Resource       ../../objects/tax_questionnaire.txt
+Suite Setup    Suite Setup
+
+*** Variables ***
+${testCompany}=  Acamica
+
+*** Keywords ***
+Suite Setup
+  Login to system using fullservice account
+  Search for company ${testCompany} in accountant list
+  Click ${testCompany} from accountant list
+  Navigate to tax questionnaire page  
+
+*** Test Cases ***
+Happy path - (No issues)
+  [tags]  tax-questionnaire  smoke  regression
+  Navigate to Basic Company Info tab
+  Input to address fields    test    test
+  Capture Screenshot

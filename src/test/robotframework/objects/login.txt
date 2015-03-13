@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation  Login page
-Resource  ../selenium-utils.txt
+Resource  ../includes/indinero.txt
 
 *** Variables ***
 ${login.url}=   ${URL}/login
@@ -15,5 +15,6 @@ Login using ${username} and ${password}
   Click Element  name=log-in
 
 Login to system using fullservice account
+  Navigate to login page
   Login using ${FULL_SERVICE_USERNAME} and ${FULL_SERVICE_PASSWORD}
   

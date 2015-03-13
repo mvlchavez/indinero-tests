@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<properties>
+
+  <entry key="company">
+    <![CDATA[
+      SELECT * 
+      FROM companies
+      ORDER BY RAND() LIMIT 1
+    ]]>
+    
+  
+  </entry>
+
+</properties>

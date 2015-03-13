@@ -1,5 +1,0 @@
-*** Settings ***
-Documentation  Tests to verify Tax Questionnaire page
-...            correctness. 
-
-*** Test Cases ***

@@ -3,11 +3,14 @@ Documentation  Tax questionnaire page
 Resource  ../includes/indinero.txt
 
 *** Variables ***
-${tax.questionnaire.url}= ${URL}/tax_questionnaire/${year}
+${tax questionnaire.url}=  ${URL}/tax_questionnaire/2014
 
 *** Keywords ***
+Set tax year to ${value}
+  Set Suite Variable  ${YEAR}  ${value}
+    
 Navigate to tax questionnaire page
-  Navigate To  ${tax.questionnaire.url}
+  Navigate To  ${tax questionnaire.url}
 
 Navigate to tab number ${number}
   Click Element                css=.progress-step[data-num='${number}']
@@ -17,7 +20,7 @@ Navigate to Basic Company Info tab
   Navigate to tab number 1
 
 Input to address fields
-  [Arguments]   ${addressLine1}  ${addressLine2}
+  [Arguments]   ${addressLine1}  ${addressLine2} 
   Input Text    css=.jw_input.address1  ${addressLine1}
   Input Text    css=.jw_input.address2  ${addressLine2}
   
@@ -81,7 +84,7 @@ Select Yes for company IRS Form 1128 field
   Click Element  css=div[data-choice-id='54f5107872f3362785000023']
   
 Upload IRS Form 1128
-  [Argument]  ${filePath}
+  [Arguments]  ${filePath}
   Send Keys  css=form#upload-54f5107872f3362785000026 input.custom-file-input  ${filePath}
 
 Select No for company IRS Form 1128 field
@@ -200,11 +203,3 @@ Select No for if company has any installment sales in the current tax year
   
 Select Ask inDinero if company has been any installment sales in the current year
   Click Element  css=div[data-choice-id='54f5107872f336278500013b']
-  
-
-  
-  
-
-
-
-  

@@ -11,6 +11,14 @@
   <name>indinero-ui-tests</name>
   <profiles>
     <profile>
+      <id>local</id>
+      <properties>
+        <url>http://localhost</url>
+        <full.service.username>fullservice@indinero.com</full.service.username>
+        <full.service.password>password</full.service.password>
+      </properties>
+    </profile>
+    <profile>
       <id>DEV</id>
       <activation>
         <activeByDefault>true</activeByDefault>
@@ -31,6 +39,9 @@
     </profile>
     <profile>
       <id>chrome-osx-10.10</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <properties>
         <selenium.grid.url>http://localhost:4444</selenium.grid.url>
         <selenium.grid.browserName>chrome</selenium.grid.browserName>
@@ -81,6 +92,19 @@
     <dependency>
       <groupId>org.jspringbot</groupId>
       <artifactId>jspringbot-selenium</artifactId>
-    </dependency>  
+    </dependency>
+    <dependency>
+      <groupId>org.jspringbot</groupId>
+      <artifactId>jspringbot-config</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jspringbot</groupId>
+      <artifactId>jspringbot-db</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.13</version>
+    </dependency>
   </dependencies>
 </project>

@@ -1,0 +1,30 @@
+*** Settings ***
+Documentation  Indinero accountant page
+Resource  ../includes/indinero.txt
+
+*** Variables ***
+${accountant.url}=  ${URL}/accountant
+
+*** Keywords ***
+Search for company ${name} in accountant list
+  Input Text  name=search  ${name}
+  Sleep  3s
+  Capture Screenshot
+  Wait Until Element Is Not Visible  css=div.right-column div.loading-animation
+  Capture Screenshot
+  
+Click ${name} from accountant list
+  ${size}=  Get result rows size
+  Should Be True  ${size} >= 1  There are no results found given company ${name}
+  Click Element  xpath=//table[@class='client_list']//td//div[contains(text(), '${name}')]/../..
+  Capture Screenshot
+  Sleep  10s
+  
+Get result rows size
+  ${count}=  Get Matching CSS Count  css=tr.client_row
+  [Return]   ${count}
+  
+  
+  
+  
+  

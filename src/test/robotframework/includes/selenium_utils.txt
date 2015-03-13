@@ -6,3 +6,6 @@ Resource       ../resource.txt
 Capture Screenshot On Failure
   Run Keyword If Test Failed    Capture Screenshot
 
+Wait Until Element Is Not Visible
+  [Arguments]  ${locator}
+  Wait Until Keyword Succeeds  10s  1s  Element Should Not Be Visible  ${locator}

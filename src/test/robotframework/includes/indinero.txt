@@ -1,6 +1,7 @@
 *** Settings ***
-Documentation  Contains keywords on common indinero app ui elements
-Resource       selenium-utils.txt
+Documentation  Contains keywords on common indinero app ui elements. 
+...            Include this on your page object files.
+Resource       selenium_utils.txt
 
 *** Keywords ***
 Select ${label} from custom drop-down list
