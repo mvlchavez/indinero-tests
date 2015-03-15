@@ -4,9 +4,19 @@ Documentation  Contains keywords on common indinero app ui elements.
 Resource       selenium_utils.txt
 
 *** Keywords ***
-Select ${label} from custom drop-down list
+Select ${value} from custom drop-down list
+  [Documentation]  Use to properly toggle elements in indinero's custom
+  ...              drop-down field. Target the locator the <script>
+  ...              tag setups. Example: 
+  ...                  <div id="drop-down">
+  ...                  <script>$(function(){ ind.jewel.setupDropdown('#drop_down', ...)  }</script>
+  ...              * Use css=#drop-down as locator arg.
+  ...              * Note: use CSS locators!
   [Arguments]  ${locator}
-
+  Focus          ${locator} input[type='text']
+  Element Should Be Visible  ${locator} ul
+  ${choices}=  Get Matching CSS Count  ${locator} ul li
+  Click Element  ${locator} ul li[select-value="${value}"]
 
   
   

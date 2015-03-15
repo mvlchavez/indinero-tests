@@ -11,10 +11,17 @@ Set tax year to ${value}
     
 Navigate to tax questionnaire page
   Navigate To  ${tax questionnaire.url}
+  Sleep  3s
+  Capture Screenshot
 
 Navigate to tab number ${number}
-  Click Element                css=.progress-step[data-num='${number}']
+  Navigate To  ${tax questionnaire.url}#${number}
+# Click Element                css=.progress-step[data-num='${number}']
   Page Should Contain Element  css=.progress-step.current[data-num='${number}']
+
+Click save and continue button
+  Click Element  css=button.save-progress-btn
+  Wait Until Element Is Not Visible  css=div.loading-animation
   
 Navigate to Basic Company Info tab
   Navigate to tab number 1
@@ -25,13 +32,13 @@ Input to address fields
   Input Text    css=.jw_input.address2  ${addressLine2}
   
 Input ${value} to country field
-  Input Text  css=.country-dropdown-container input.dropdown_input  ${value}
-  
+  Select ${value} from custom drop-down list  css=.country-dropdown-container div.jw_select_dropdown
+
 Input ${value} to city field
   Input Text  name=54f5107872f3362785000005-input  ${value}
   
 Input ${value} to state/province field
-  Input Text  css=.state-container input.dropdown_input  ${value}
+  Select ${value} from custom drop-down list  css=.dropdown-state-container div.jw_select_dropdown
 
 Input ${value} to postal/zip code
   Input Text  name=54f5107872f3362785000007-input  ${value}
@@ -45,7 +52,7 @@ Input ${value} to phone number field
 Input ${value} to tax return signee field
   Input Text  name=54f5107872f336278500000b-input  ${value}
 
-Input ${value} to fedral identification number field
+Input ${value} to federal identification number field
   Input Text  name=54f5107872f336278500000c-input  ${value}
   
 Select Yes for first year filing taxes
@@ -75,7 +82,7 @@ Select Yes for doing business as (DBA) name
   Click Element  css=div[data-choice-id='54f5107872f3362785000018']
   
 Select No for doing business as (DBA) name
-  Click Element  css-div[data-choice-id='54f5107872f3362785000019']
+  Click Element  css=div[data-choice-id='54f5107872f3362785000019']
   
 Input ${value} for company's fiscal year end date
   Input Text  name=54f5107872f3362785000021-input  ${value}
@@ -110,7 +117,11 @@ Navigate to entity type tab
   Navigate to tab number 3
 
 Input ${value} to company entity type drop-down
-  Input Text  css=div[data-question-id='54f5107872f336278500002d'] div.question-type-container input.dropdown_input  ${value}
+  Select ${value} from custom drop-down list  css=div[data-question-id='54f5107872f336278500002d'] div.custom-dropdown
+
+Under Single Member LLC, select No for company change or convert entity type
+  Click Element  css=div[data-choice-id='54f5107872f33627850000c3']
+
 
 Input C Corp as company entity type
   Input C Corp to company entity type drop-down

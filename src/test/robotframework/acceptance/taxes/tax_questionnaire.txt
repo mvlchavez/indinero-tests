@@ -5,20 +5,55 @@ Resource       ../../objects/login.txt
 Resource       ../../objects/accountant.txt
 Resource       ../../objects/tax_questionnaire.txt
 Suite Setup    Suite Setup
+Test Teardown  Capture Screenshot On Failure
 
 *** Variables ***
 ${testCompany}=  Acamica
 
 *** Keywords ***
 Suite Setup
+  Maximize Window
   Login to system using fullservice account
   Search for company ${testCompany} in accountant list
   Click ${testCompany} from accountant list
   Navigate to tax questionnaire page  
+  
+Input correct basic company info fields
+  Input to address fields    test    test
+  Input United States to country field
+  Input testCity to city field
+  Input Wyoming to state/province field
+  Input 12345 to postal/zip code
+  Input test@email.com to email field
+  Input 12345678 to phone number field
+  Input testSignee to tax return signee field
+  Input 123456789 to federal identification number field
+  Select Yes for first year filing taxes
+  Input to company short description text  This is a test.
+  Input to products sold/services rendered text  This is a test.
+  Click save and continue button
 
+Input correct company details fields
+  Select No for company filed paperwork to change its name
+  Select No for doing business as (DBA) name  
+  #Input 12/31 for company's fiscal year end date
+  Select No for company IRS Form 1128 field
+  Select No for company IRS Form 3115 field
+  Click save and continue button
+  
+Input correct entity type fields
+  Input Single Member LLC to company entity type drop-down
+  Under Single Member LLC, select No for company change or convert entity type
+  Click save and continue button
+  
+Input correct income fields
+  Click save and continue button
+  
 *** Test Cases ***
-Happy path - (No issues)
+Happy path - minimal input
   [tags]  tax-questionnaire  smoke  regression
   Navigate to Basic Company Info tab
-  Input to address fields    test    test
+  Input correct basic company info fields
+  Input correct company details fields
+  Input correct income fields
   Capture Screenshot
