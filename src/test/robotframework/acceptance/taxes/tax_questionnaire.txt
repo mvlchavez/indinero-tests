@@ -40,6 +40,7 @@ Input correct company details fields
   Select No for company IRS Form 1128 field
   Select No for company IRS Form 3115 field
   Click save and continue button
+  Capture Screenshot
   
 Input correct entity type fields
   Input Single Member LLC to company entity type drop-down
@@ -47,7 +48,67 @@ Input correct entity type fields
   Click save and continue button
   
 Input correct income fields
+  Select No to question #20
+  Select No to question #21
+  Select No to question #22
   Click save and continue button
+
+Input correct payroll & 1099 info fields
+  Select No to question #23
+  Select No to question #24
+  Click save and continue button
+  
+Input correct credits fields
+  Select No to question #25
+  Select No to question #26
+  Click save and continue button
+
+Input correct stock and ownership fields
+  Select No to question #27
+  Select No to question #28
+  Select No to question #29
+  Select No to question #32
+  Select No to question #33
+  Select No to question #34
+  Select No to question #35
+  Select No to question #36
+  Select No to question #37
+  Select No to question #38
+  Select No to question #39
+  Select No to question #40
+  Click save and continue button
+  
+Input correct multi-state details fields
+  Select No to question #41
+  Click save and continue button
+
+Input correct foreign filing fields
+  Select No to question #42
+  Select No to question #43
+  Select No to question #44
+  Select No to question #45
+  Click save and continue button
+  
+Input correct brokerage and bank accounts fields
+  Select No to question #46
+  Select No to question #47
+  Click save and continue button
+  
+Input correct miscellaneous questions fields
+  Select No to question #48
+  Select No to question #49
+  Select No to question #50
+  Select No to question #51
+  Click save and continue button
+  
+Input correct tax notices and audits fields
+  Select No to question #52
+  Click save and continue button
+  
+Input tax payment and refund info
+  Select No to question #53
+  #Dont finish just for us to reuse this company
+    
   
 *** Test Cases ***
 Happy path - minimal input
@@ -56,4 +117,13 @@ Happy path - minimal input
   Input correct basic company info fields
   Input correct company details fields
   Input correct income fields
+  Input correct payroll & 1099 info fields
+  Input correct credits fields
+  Input correct stock and ownership fields
+  Input correct multi-state details fields
+  Input correct foreign filing fields
+  Input correct brokerage and bank accounts fields
+  Input correct miscellaneous questions fields
+  Input correct tax notices and audits fields
+  Input tax payment and refund info
   Capture Screenshot

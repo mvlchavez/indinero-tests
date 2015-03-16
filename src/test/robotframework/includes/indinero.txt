@@ -4,6 +4,18 @@ Documentation  Contains keywords on common indinero app ui elements.
 Resource       selenium_utils.txt
 
 *** Keywords ***
+#Select ${value} from custom drop-down list
+#  [Documentation]  Use to properly toggle elements in indinero's custom
+#  ...              drop-down field. Target the locator the <script>
+#  ...              tag setups. Example: 
+#  ...                  <div id="drop-down">
+#  ...                  <script>$(function(){ ind.jewel.setupDropdown('#drop_down', ...)  }</script>
+#  ...              * Use css=#drop-down as locator arg.
+#  [Arguments]  ${locator}
+#  @{argument}=  Split String  ${locator}  =
+#  Run Keyword If  '@{argument}[0]' == 'css'    Select ${value} from custom drop-down list CSS    ${locator}
+# Run Keyword If  '@{argument}[0]' == 'xpath'  Select ${value} from custom drop-down list xpath  ${locator}
+
 Select ${value} from custom drop-down list
   [Documentation]  Use to properly toggle elements in indinero's custom
   ...              drop-down field. Target the locator the <script>
@@ -11,12 +23,15 @@ Select ${value} from custom drop-down list
   ...                  <div id="drop-down">
   ...                  <script>$(function(){ ind.jewel.setupDropdown('#drop_down', ...)  }</script>
   ...              * Use css=#drop-down as locator arg.
-  ...              * Note: use CSS locators!
   [Arguments]  ${locator}
   Focus          ${locator} input[type='text']
   Element Should Be Visible  ${locator} ul
   ${choices}=  Get Matching CSS Count  ${locator} ul li
   Click Element  ${locator} ul li[select-value="${value}"]
-
   
-  
+#Select ${value} from custom drop-down list xpath
+#  [Arguments]  ${locator}
+#  Focus  ${locator}//input[@type='text']
+#  Element Should Be Visible  ${locator}//ul
+#  ${choices}=  Get Matching Xpath Count  ${locator}//ul//li
+#  Click Element  ${locator}//ul//li[@select-value='${value}']  

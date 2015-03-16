@@ -55,6 +55,9 @@ Input ${value} to tax return signee field
 Input ${value} to federal identification number field
   Input Text  name=54f5107872f336278500000c-input  ${value}
   
+Select ${answer} to question #${number}
+  Click Element  xpath=//div[@class='question-number'][contains(text(),'${number}')]/../..//div[@class='radio-text'][text()='${answer}']/..
+  
 Select Yes for first year filing taxes
   Click Element  css=div[data-choice-id='54f5107872f336278500000e']
 
@@ -211,6 +214,12 @@ Select Yes for if company has any installment sales in the current tax year
   
 Select No for if company has any installment sales in the current tax year
   Click Element  css=div[data-choice-id='54f5107872f336278500013a']
-  
+
 Select Ask inDinero if company has been any installment sales in the current year
   Click Element  css=div[data-choice-id='54f5107872f336278500013b']
+
+Select No for if company had payroll in 2014
+  Click Element  css=div[data-choice-id='54f5107872f336278500013f']
+
+Select No for if Any US based contractors receiving more than 600... question
+  Click Element  css=div[data-choice-id='54f5107872f3362785000146']
