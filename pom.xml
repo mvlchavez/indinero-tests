@@ -38,10 +38,18 @@
       </properties>
     </profile>
     <profile>
-      <id>chrome-osx-10.10</id>
+      <id>phantomjs</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
+      <properties>
+        <selenium.grid.url>http://localhost:4444</selenium.grid.url>
+        <selenium.grid.browserName>phantomjs</selenium.grid.browserName>
+        <selenium.grid.platform>LINUX</selenium.grid.platform>
+      </properties>
+    </profile>
+    <profile>
+      <id>chrome-osx</id>
       <properties>
         <selenium.grid.url>http://localhost:4444</selenium.grid.url>
         <selenium.grid.browserName>chrome</selenium.grid.browserName>
@@ -50,7 +58,7 @@
       </properties>
     </profile>
     <profile>
-      <id>firefox-osx-10.10</id>
+      <id>firefox-osx</id>
       <properties>
         <selenium.grid.url>http://localhost:4444</selenium.grid.url>
         <selenium.grid.browserName>firefox</selenium.grid.browserName>
